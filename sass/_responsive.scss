@@ -1,0 +1,711 @@
+@use "variables" as vars;
+
+@mixin authentication-tablet {
+    @media (max-width: vars.$breakpoint-auth-tablet) {
+        .auth-layout {
+            min-height: calc(100vh - 112px);
+            grid-template-columns: 1fr;
+        }
+
+        body.auth-page .auth-layout {
+            min-height: 0;
+        }
+
+        .story-panel {
+            padding: 42px 24px;
+        }
+
+        .story-content h1 {
+            max-width: 16ch;
+            font-size: clamp(2.25rem, 9vw, 3.5rem);
+        }
+
+        .form-panel {
+            padding: 32px 20px 48px;
+        }
+
+        .register-layout .form-panel {
+            padding: 28px 20px 36px;
+        }
+
+        .register-layout .story-panel {
+            padding: 34px 24px;
+        }
+
+        .register-layout .story-content h1 {
+            max-width: 16ch;
+            font-size: clamp(2.25rem, 9vw, 3.5rem);
+        }
+    }
+}
+
+@mixin authentication-mobile {
+    @media (max-width: 700px) {
+        .register-fields {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .register-fields .register-address {
+            grid-column: auto;
+        }
+    }
+
+    @media (max-width: vars.$breakpoint-auth-mobile) {
+        .topbar {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 5px;
+            padding: 13px 20px;
+        }
+
+        .auth-card {
+            padding: 23px 19px;
+        }
+
+        .register-card {
+            padding: 20px 17px;
+        }
+
+        .register-layout .form-panel {
+            padding: 22px 14px 30px;
+        }
+
+        .form-links {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .form-links.auth-account-link {
+            align-items: center;
+            flex-direction: row;
+            gap: 5px;
+        }
+
+        .form-links.auth-forgot-link {
+            align-items: center;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+    }
+}
+
+@mixin print {
+    @media print {
+        body.qr-print-page {
+            min-width: 0;
+            background: #fff;
+        }
+
+        .qr-screen-only {
+            display: none !important;
+        }
+
+        .site-footer {
+            display: none;
+        }
+
+        .product-tag-main {
+            min-height: 0;
+            padding: 0;
+        }
+
+        .product-tag-card {
+            border: 0;
+        }
+
+        .qr-print-page .account-layout {
+            display: block;
+            min-height: 0;
+        }
+
+        .qr-print-page .account-main {
+            display: contents;
+        }
+
+        .qr-print-page .site-footer {
+            display: none;
+        }
+    }
+}
+
+@mixin reservations-mobile {
+    @media (max-width: vars.$breakpoint-reservation-mobile) {
+        .reservation-date-fields {
+            grid-template-columns: 1fr;
+        }
+
+        .reservation-card {
+            padding: 16px;
+        }
+
+        .reservation-cart-item {
+            grid-template-columns: 18px 56px minmax(0, 1fr);
+            gap: 8px;
+            padding: 8px;
+        }
+
+        .reservation-cart-product-link {
+            width: 56px;
+            height: 68px;
+            flex-basis: 56px;
+        }
+
+        .reservation-cart-product-copy {
+            font-size: 0.75rem;
+        }
+
+        .reservation-cart-remove {
+            grid-column: 3;
+            grid-row: 2;
+            justify-self: start;
+            padding: 7px 9px;
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 380px) {
+            .reservation-cart-item {
+                grid-template-columns: 18px 48px minmax(0, 1fr);
+            }
+
+            .reservation-cart-product-link {
+                width: 48px;
+                height: 60px;
+                flex-basis: 48px;
+            }
+
+        }
+
+        .staff-reservations-page .admin-page-heading {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .reservation-card-heading,
+        .reservation-payment-panel {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+    }
+}
+
+@mixin tablet {
+    @media (max-width: vars.$breakpoint-layout-tablet) {
+        .shop-hero {
+            min-height: 270px;
+            padding: 32px 28px;
+        }
+
+        .how-it-works {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .style-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .admin-product-form {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .product-detail {
+            grid-template-columns: minmax(0, 1fr) minmax(240px, 0.9fr);
+            gap: 28px;
+        }
+    }
+}
+
+@mixin storefront-mobile {
+    @media (max-width: vars.$breakpoint-phone) {
+        .shop-header {
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 8px;
+            padding: 10px 12px;
+        }
+
+        .shop-nav {
+            display: none;
+        }
+
+        .navigation-dropdown {
+            display: block;
+        }
+
+        .shop-brand {
+            font-size: clamp(0.75rem, 3.8vw, 1.15rem);
+            white-space: nowrap;
+        }
+
+        .shop-header-actions {
+            gap: 7px;
+        }
+
+        .profile-dropdown summary {
+            padding: 3px;
+        }
+
+        .profile-summary-copy {
+            display: none;
+        }
+
+        .header-login-link {
+            min-height: 36px;
+            padding: 6px 10px;
+        }
+
+        .profile-avatar {
+            width: 34px;
+            height: 34px;
+        }
+
+        .navigation-menu-panel {
+            right: calc(100% + 7px);
+            min-width: 150px;
+        }
+
+        @media (max-width: vars.$breakpoint-narrow) {
+            .shop-brand {
+                font-size: 0.7rem;
+            }
+
+            .shop-header-actions {
+                gap: 5px;
+            }
+
+            .navigation-dropdown summary {
+                width: 40px;
+                height: 40px;
+            }
+
+            .profile-avatar {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        .collection-toolbar {
+            align-items: stretch;
+        }
+
+        .collections-heading {
+            align-items: stretch;
+        }
+
+        .collections-heading .collection-search {
+            width: 100%;
+            margin-left: 0;
+        }
+
+        .collection-search input {
+            width: 100%;
+        }
+
+        .shop-hero {
+            grid-template-columns: 1fr;
+            gap: 12px;
+            padding: 34px 22px 22px;
+        }
+
+        .hero-copy h1 {
+            font-size: clamp(2.15rem, 10vw, 3rem);
+        }
+
+        .hero-art {
+            min-height: 290px;
+        }
+
+        .product-detail-section {
+            width: min(100% - 32px, 560px);
+            padding: 24px 0 38px;
+        }
+
+        .product-detail {
+            grid-template-columns: 1fr;
+            gap: 22px;
+        }
+
+        .product-detail-copy {
+            padding-top: 0;
+        }
+
+        .product-detail-meta {
+            grid-template-columns: 1fr;
+            align-content: center;
+            gap: 6px;
+        }
+
+        .product-detail-meta + .product-detail-meta {
+            padding-left: 14px;
+        }
+
+        .steps-list {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            row-gap: 17px;
+        }
+
+        .catalog-section {
+            padding: 25px 16px 30px;
+        }
+
+        .style-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 11px;
+        }
+
+        .style-art {
+            min-height: 145px;
+        }
+
+        .style-card-copy {
+            padding: 10px;
+        }
+
+        .topbar {
+            align-items: flex-start;
+        }
+
+        .admin-nav {
+            flex-wrap: wrap;
+            gap: 10px 16px;
+        }
+
+        .admin-inventory {
+            width: min(100% - 28px, 1180px);
+            padding-top: 24px;
+        }
+        .inventory-list-heading {
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        .inventory-search {
+            width: 100%;
+        }
+
+        .inventory-search-clear {
+            margin-left: 8px;
+        }
+
+        .admin-product-list {
+            padding: 16px;
+        }
+
+        .staff-inventory-page .admin-table-wrap {
+            overflow: visible;
+        }
+
+        .staff-inventory-page .admin-product-table {
+            display: block;
+            min-width: 0;
+        }
+
+        .staff-inventory-page .admin-product-table thead {
+            display: none;
+        }
+
+        .staff-inventory-page .admin-product-table tbody {
+            display: grid;
+            gap: 14px;
+        }
+
+        .staff-inventory-page .admin-product-table tr {
+            display: grid;
+            gap: 0;
+            padding: 8px 12px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: #fffdfd;
+        }
+
+        .staff-inventory-page .admin-product-table td {
+            display: grid;
+            grid-template-columns: minmax(90px, 0.42fr) minmax(0, 1fr);
+            gap: 10px;
+            padding: 9px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .staff-inventory-page .admin-product-table td::before {
+            color: var(--pink-dark);
+            content: attr(data-label);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .staff-inventory-page .admin-product-table td[data-label="Image"] {
+            align-items: center;
+        }
+
+        .staff-inventory-page .admin-product-table code {
+            overflow-wrap: anywhere;
+        }
+
+        .admin-product-form {
+            grid-template-columns: 1fr;
+        }
+
+        .admin-description-field {
+            grid-column: auto;
+        }
+
+        .admin-page-heading {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .admin-form-heading {
+            align-items: flex-start;
+        }
+
+        .landing-site-footer {
+            padding: 10px 14px 0;
+        }
+
+        .landing-footer-content {
+            grid-template-columns: 1fr;
+            gap: 10px;
+            padding-bottom: 10px;
+        }
+
+        .landing-footer-brand {
+            padding: 0 0 9px;
+            border-right: 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .landing-footer-details {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            row-gap: 10px;
+        }
+
+        .landing-footer-details section {
+            padding: 0 8px;
+        }
+
+        .landing-footer-details section:last-child {
+            grid-column: 1 / -1;
+            padding-top: 9px;
+            border-top: 1px solid var(--line);
+            border-left: 0;
+        }
+
+    }
+
+}
+
+@mixin staff-menu-mobile {
+    @media (max-width: vars.$breakpoint-phone) {
+        .topbar {
+            position: relative;
+            z-index: 10;
+            align-items: center;
+            flex-direction: row;
+            gap: 12px;
+        }
+
+        .topbar .brand {
+            min-width: 0;
+            overflow: hidden;
+            font-size: clamp(0.75rem, 3.8vw, 1.15rem);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            letter-spacing: 0.01em;
+        }
+
+        .topbar-menu {
+            flex: 0 0 auto;
+        }
+
+        .topbar-menu-toggle {
+            display: grid;
+            place-items: center;
+        }
+
+        .topbar-menu .admin-nav {
+            display: none;
+        }
+
+        .topbar-menu.is-open .admin-nav {
+            position: absolute;
+            z-index: 20;
+            top: calc(100% + 8px);
+            right: 0;
+            display: flex;
+            min-width: 190px;
+            align-items: stretch;
+            flex-direction: column;
+            gap: 0;
+            padding: 8px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--panel);
+            box-shadow: 0 12px 28px rgb(56 32 43 / 16%);
+        }
+
+        .topbar-menu[open] .admin-nav a {
+            padding: 10px 12px;
+            border-radius: 6px;
+        }
+
+        .topbar-menu[open] .admin-nav a:hover,
+        .topbar-menu[open] .admin-nav a:focus-visible,
+        .topbar-menu[open] .admin-nav a[aria-current="page"] {
+            background: var(--panel-deep);
+            text-decoration: none;
+        }
+    }
+}
+
+@mixin staff-menu-narrow {
+    @media (max-width: vars.$breakpoint-narrow) {
+        .topbar .brand {
+            font-size: 0.7rem;
+        }
+    }
+}
+
+@mixin account-sidebar-mobile {
+    @media (max-width: 700px) {
+        .account-topbar {
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 8px;
+            padding: 10px 12px;
+        }
+
+        .account-topbar .shop-brand {
+            min-width: 0;
+            overflow: hidden;
+            font-size: clamp(0.75rem, 3.8vw, 1.15rem);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .account-topbar .shop-nav {
+            display: none;
+        }
+
+        .account-topbar .navigation-dropdown {
+            display: block;
+        }
+
+        .account-topbar .shop-header-actions {
+            gap: 7px;
+        }
+
+        .account-topbar .profile-dropdown summary {
+            padding: 3px;
+        }
+
+        .account-topbar .profile-summary-copy {
+            display: none;
+        }
+
+        .account-topbar .profile-avatar,
+        .account-topbar .notification-button {
+            width: 34px;
+            height: 34px;
+        }
+
+        .account-topbar .navigation-dropdown summary {
+            width: 40px;
+            height: 40px;
+        }
+
+        .account-layout {
+            grid-template-columns: 68px minmax(0, 1fr);
+            align-content: start;
+        }
+
+        .account-sidebar {
+            display: flex;
+            min-width: 0;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 8px;
+            border-right: 1px solid var(--line);
+            border-bottom: 0;
+        }
+
+        .account-sidebar-header {
+            display: grid;
+            justify-items: center;
+        }
+
+        .account-sidebar-toggle {
+            width: 38px;
+            height: 38px;
+            border-color: transparent;
+            background: transparent;
+        }
+
+        .account-sidebar-heading {
+            display: none;
+        }
+
+        .account-sidebar nav {
+            display: grid;
+            width: 100%;
+            gap: 8px;
+        }
+
+        .account-nav-link {
+            min-height: 48px;
+            justify-content: center;
+            padding: 10px 8px;
+        }
+
+        .account-nav-link > span {
+            display: none;
+        }
+
+        .account-nav-link[aria-current="page"] {
+            background: var(--panel-deep);
+        }
+
+        .account-layout.account-sidebar-expanded {
+            grid-template-columns: minmax(165px, 42vw) minmax(0, 1fr);
+        }
+
+        .account-layout.account-sidebar-expanded .account-sidebar {
+            align-items: stretch;
+            padding-right: 12px;
+            padding-left: 12px;
+        }
+
+        .account-layout.account-sidebar-expanded .account-sidebar-header {
+            justify-items: start;
+        }
+
+        .account-layout.account-sidebar-expanded .account-sidebar-heading {
+            display: block;
+            margin: 0 0 0 4px;
+        }
+
+        .account-layout.account-sidebar-expanded .account-nav-link {
+            justify-content: flex-start;
+        }
+
+        .account-layout.account-sidebar-expanded .account-nav-link > span {
+            display: inline;
+        }
+
+        .account-layout.account-sidebar-expanded .account-nav-link[aria-current="page"] {
+            justify-content: flex-start;
+        }
+
+        .account-main > .admin-inventory {
+            width: min(100% - 28px, 1180px);
+            padding-top: 24px;
+        }
+    }
+
+    @media (max-width: 420px) {
+        .account-topbar .shop-brand {
+            font-size: 0.7rem;
+        }
+    }
+}

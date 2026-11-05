@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "scripts": {
+    "build:qr": "esbuild product-qr.js --bundle --minify --outfile=qr.bundle.js",
+    "build:receipt": "esbuild receipt-download.js --bundle --minify --outfile=receipt-download.bundle.js"
+  },
+  "dependencies": {
+    "html2canvas": "^1.4.1",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}

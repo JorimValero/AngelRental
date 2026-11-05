@@ -1,0 +1,7 @@
+@mixin field-surface($radius: 9px, $background: var(--field)) {
+    border: 1px solid var(--line);
+    border-radius: $radius;
+    background: $background;
+    color: var(--ink);
+    font: inherit;
+}

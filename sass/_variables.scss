@@ -1,0 +1,26 @@
+$breakpoint-auth-tablet: 800px;
+$breakpoint-auth-mobile: 480px;
+$breakpoint-reservation-mobile: 560px;
+$breakpoint-layout-tablet: 900px;
+$breakpoint-phone: 600px;
+$breakpoint-narrow: 340px;
+
+:root {
+    color-scheme: light;
+    --page: #faf7f7;
+    --panel: #f0e5ea;
+    --panel-deep: #e8d7df;
+    --field: #fffdfd;
+    --pink: #b97893;
+    --pink-dark: #87536a;
+    --ink: #3e3439;
+    --muted: #74666d;
+    --line: #d8c6ce;
+    --error-bg: #f7e7e9;
+    --error-ink: #83444f;
+    --available: #426b4c;
+    --available-bg: #edf3ed;
+    --unavailable: #9a4f55;
+    --unavailable-bg: #f7e9e9;
+    --font-body: "Segoe UI", Arial, sans-serif;
+}
